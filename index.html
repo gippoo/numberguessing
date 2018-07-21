@@ -47,14 +47,24 @@ function guessing() {
                 document.getElementById("lives").innerHTML = "Lives: "+lives;
             }
         
-        } else {
+        } else if(parseInt(guess) != secret) {
+    		lives -= 1
+            if(lives == 0) {
+            	document.getElementById("outcome").innerHTML = "U ded";
+                document.getElementById("lives").innerHTML = "Lives: 0";
+                document.getElementById("b1").disabled = true;
+                document.getElementById("b1").innerHTML = "U Lost"
+            } else {
+    			document.getElementById("outcome").innerHTML = "That's not a number idiot.";
+                document.getElementById("lives").innerHTML = "Lives: "+lives;
+            }
+
+	} else {
     		document.getElementById("outcome").innerHTML = "Wew (◠‿◠✿)";
             document.getElementById("b1").disabled = true;
             document.getElementById("b1").innerHTML = "U won";
     	}
-	} else {
-    	document.getElementById("outcome").innerHTML = "U ded";
-    }
+	} 
 }
 function reset() {
 	lives = 3
